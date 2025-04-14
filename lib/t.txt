@@ -1,0 +1,15 @@
+lib/
+  ├── components/
+  │   ├── background/
+  │   ├── events/
+  │   ├── hour_background/
+  │   ├── now_line/
+  │   ├── week_days/
+  │   ├── day_picker/
+  │   ├── event/
+  │   ├── event_details/
+  │   └── overlapping_events_row/
+  ├── flutter_flow/
+  │   └── custom_functions.dart
+  ├── models/  (if needed)
+  ├── main.dart
