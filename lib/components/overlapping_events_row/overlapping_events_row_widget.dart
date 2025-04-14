@@ -55,13 +55,13 @@ class _OverlappingEventsRowWidgetState
         width: MediaQuery.sizeOf(context).width * 1.0,
         height: functions
             .overlappingDuration(
-                widget!.overlappingEvents, FFAppState().hourHeight)
+                widget.overlappingEvents, FFAppState().hourHeight)
             .toDouble(),
         decoration: BoxDecoration(),
         child: Builder(
           builder: (context) {
             final event =
-                (widget!.overlappingEvents?.toList() ?? []).take(5).toList();
+                (widget.overlappingEvents?.toList() ?? []).take(5).toList();
 
             return Row(
               mainAxisSize: MainAxisSize.max,
@@ -81,7 +81,7 @@ class _OverlappingEventsRowWidgetState
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                       child: EventWidget(
                         key: Key('Keyyyh_${eventIndex}_of_${event.length}'),
-                        start: functions.startOffset(widget!.overlappingEvents,
+                        start: functions.startOffset(widget.overlappingEvents,
                             FFAppState().hourHeight, eventItem),
                         duration: functions.eventDuration(
                             eventItem, FFAppState().hourHeight),

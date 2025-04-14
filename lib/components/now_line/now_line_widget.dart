@@ -49,7 +49,7 @@ class _NowLineWidgetState extends State<NowLineWidget> {
       children: [
         Container(
           width: MediaQuery.sizeOf(context).width * 1.0,
-          height: widget!.height?.toDouble(),
+          height: widget.height?.toDouble(),
           decoration: BoxDecoration(),
         ),
         Row(

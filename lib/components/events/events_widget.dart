@@ -53,7 +53,7 @@ class _EventsWidgetState extends State<EventsWidget> {
       children: [
         Container(
           width: MediaQuery.sizeOf(context).width * 1.0,
-          height: widget!.height?.toDouble(),
+          height: widget.height?.toDouble(),
           decoration: BoxDecoration(),
           child: Align(
             alignment: AlignmentDirectional(0.0, 0.0),

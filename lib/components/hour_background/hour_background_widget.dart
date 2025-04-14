@@ -93,7 +93,7 @@ class _HourBackgroundWidgetState extends State<HourBackgroundWidget> {
                               children: [
                                 SelectionArea(
                                     child: Text(
-                                  widget!.time!,
+                                  widget.time!,
                                   style: FlutterFlowTheme.of(context)
                                       .headlineSmall
                                       .override(
@@ -107,7 +107,7 @@ class _HourBackgroundWidgetState extends State<HourBackgroundWidget> {
                                   child: SelectionArea(
                                       child: Text(
                                     valueOrDefault<String>(
-                                      widget!.period,
+                                      widget.period,
                                       'am',
                                     ),
                                     style: FlutterFlowTheme.of(context)

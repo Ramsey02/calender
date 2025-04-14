@@ -205,7 +205,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
+                        SizedBox(
                           width: 35.0,
                           height: 35.0,
                           child: Stack(

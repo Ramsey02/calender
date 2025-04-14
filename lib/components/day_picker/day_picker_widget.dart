@@ -90,13 +90,13 @@ class _DayPickerWidgetState extends State<DayPickerWidget>
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
+          SizedBox(
             width: 30.0,
             height: 30.0,
             child: Stack(
               alignment: AlignmentDirectional(0.0, 0.0),
               children: [
-                if (widget!.selected ?? true)
+                if (widget.selected ?? true)
                   ClipOval(
                     child: Container(
                       width: 30.0,
@@ -111,7 +111,7 @@ class _DayPickerWidgetState extends State<DayPickerWidget>
                       animationsMap['containerOnPageLoadAnimation1']!),
                 Text(
                   valueOrDefault<String>(
-                    widget!.day?.toString(),
+                    widget.day?.toString(),
                     '1',
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -119,7 +119,7 @@ class _DayPickerWidgetState extends State<DayPickerWidget>
                         letterSpacing: 0.0,
                       ),
                 ),
-                if (widget!.tapped ?? true)
+                if (widget.tapped ?? true)
                   ClipOval(
                     child: Container(
                       width: 30.0,
@@ -143,7 +143,7 @@ class _DayPickerWidgetState extends State<DayPickerWidget>
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
             child: SelectionArea(
                 child: Text(
-              widget!.weekday!,
+              widget.weekday!,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Poppins',
                     color: Color(0x7857636C),

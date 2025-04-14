@@ -1,8 +1,4 @@
-import 'dart:convert';
-import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'lat_lng.dart';
@@ -930,4 +926,51 @@ int nowHeight(int hourHeight) {
 DateTime timestampFromString(String timestampString) {
   // Add your function code here!
   return DateTime.parse(timestampString);
+}
+
+// Add this to your custom_functions.dart if needed
+dynamic getJsonField(dynamic response, String jsonPath) {
+  // Implementation logic to traverse JSON using the path
+  if (response == null) return null;
+  
+  // Split the path by dots or brackets
+  List<String> parts = jsonPath.replaceAll(r"$.", "").split('.');
+  
+  dynamic result = response;
+  for (String part in parts) {
+    if (part.contains('[') && part.contains(']')) {
+      // Handle array notation
+      String fieldName = part.substring(0, part.indexOf('['));
+      String indexStr = part.substring(part.indexOf('[') + 1, part.indexOf(']'));
+      
+      if (fieldName.isNotEmpty) {
+        if (result is Map && result.containsKey(fieldName)) {
+          result = result[fieldName];
+        } else {
+          return null;
+        }
+      }
+      
+      if (indexStr == '*') {
+        // Return all items in array
+        return result;
+      } else {
+        int index = int.tryParse(indexStr) ?? 0;
+        if (result is List && index < result.length) {
+          result = result[index];
+        } else {
+          return null;
+        }
+      }
+    } else {
+      // Handle normal field
+      if (result is Map && result.containsKey(part)) {
+        result = result[part];
+      } else {
+        return null;
+      }
+    }
+  }
+  
+  return result;
 }

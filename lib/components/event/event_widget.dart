@@ -68,7 +68,7 @@ class _EventWidgetState extends State<EventWidget> {
     return Container(
       width: MediaQuery.sizeOf(context).width * 1.0,
       constraints: BoxConstraints(
-        maxHeight: functions.add(widget!.start!, widget!.duration!).toDouble(),
+        maxHeight: functions.add(widget.start!, widget.duration!).toDouble(),
       ),
       decoration: BoxDecoration(),
       child: Column(
@@ -77,7 +77,7 @@ class _EventWidgetState extends State<EventWidget> {
         children: [
           Container(
             width: MediaQuery.sizeOf(context).width * 1.0,
-            height: widget!.start?.toDouble(),
+            height: widget.start?.toDouble(),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(0.0),
             ),
@@ -97,14 +97,14 @@ class _EventWidgetState extends State<EventWidget> {
                   return Padding(
                     padding: MediaQuery.viewInsetsOf(context),
                     child: EventDetailsWidget(
-                      attendees: widget!.attendees,
-                      title: widget!.title,
-                      description: widget!.description,
-                      start: widget!.startTimestamp,
-                      end: widget!.endTimestamp,
-                      alert: widget!.alert,
-                      color: widget!.color,
-                      location: widget!.location,
+                      attendees: widget.attendees,
+                      title: widget.title,
+                      description: widget.description,
+                      start: widget.startTimestamp,
+                      end: widget.endTimestamp,
+                      alert: widget.alert,
+                      color: widget.color,
+                      location: widget.location,
                     ),
                   );
                 },
@@ -114,13 +114,13 @@ class _EventWidgetState extends State<EventWidget> {
               borderRadius: BorderRadius.circular(20.0),
               child: Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
-                height: widget!.duration?.toDouble(),
+                height: widget.duration?.toDouble(),
                 constraints: BoxConstraints(
                   maxWidth: 250.0,
                 ),
                 decoration: BoxDecoration(
                   color: valueOrDefault<Color>(
-                    widget!.color,
+                    widget.color,
                     Color(0xFFCAD2C5),
                   ),
                   boxShadow: [
@@ -151,7 +151,7 @@ class _EventWidgetState extends State<EventWidget> {
                             children: [
                               Expanded(
                                 child: AutoSizeText(
-                                  widget!.title!,
+                                  widget.title!,
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
@@ -169,7 +169,7 @@ class _EventWidgetState extends State<EventWidget> {
                             children: [
                               Expanded(
                                 child: Text(
-                                  '${dateTimeFormat("jm", widget!.startTimestamp)} - ${dateTimeFormat("jm", widget!.endTimestamp)}',
+                                  '${dateTimeFormat("jm", widget.startTimestamp)} - ${dateTimeFormat("jm", widget.endTimestamp)}',
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -185,16 +185,16 @@ class _EventWidgetState extends State<EventWidget> {
                           ),
                         ],
                       ),
-                      if (widget!.duration! > 100)
+                      if (widget.duration! > 100)
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Container(
+                            SizedBox(
                               width: 100.0,
                               child: Stack(
                                 children: [
                                   if (getJsonField(
-                                        widget!.attendees,
+                                        widget.attendees,
                                         r'''$[0]''',
                                       ) !=
                                       null)
@@ -217,7 +217,7 @@ class _EventWidgetState extends State<EventWidget> {
                                           ),
                                           child: Image.network(
                                             getJsonField(
-                                              widget!.attendees,
+                                              widget.attendees,
                                               r'''$[0].img''',
                                             ).toString(),
                                           ),
@@ -225,7 +225,7 @@ class _EventWidgetState extends State<EventWidget> {
                                       ),
                                     ),
                                   if (getJsonField(
-                                        widget!.attendees,
+                                        widget.attendees,
                                         r'''$[1]''',
                                       ) !=
                                       null)
@@ -251,7 +251,7 @@ class _EventWidgetState extends State<EventWidget> {
                                             ),
                                             child: Image.network(
                                               getJsonField(
-                                                widget!.attendees,
+                                                widget.attendees,
                                                 r'''$[1].img''',
                                               ).toString(),
                                             ),
@@ -260,7 +260,7 @@ class _EventWidgetState extends State<EventWidget> {
                                       ),
                                     ),
                                   if (getJsonField(
-                                        widget!.attendees,
+                                        widget.attendees,
                                         r'''$[2]''',
                                       ) !=
                                       null)
@@ -285,7 +285,7 @@ class _EventWidgetState extends State<EventWidget> {
                                             ),
                                             child: Image.network(
                                               getJsonField(
-                                                widget!.attendees,
+                                                widget.attendees,
                                                 r'''$[2].img''',
                                               ).toString(),
                                             ),

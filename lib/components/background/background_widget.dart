@@ -1,7 +1,7 @@
 import '/components/hour_background/hour_background_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
+import '/flutter_flow/flutter_flow_model.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -48,13 +48,14 @@ class _BackgroundWidgetState extends State<BackgroundWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.sizeOf(context).width * 1.0,
-      height: widget!.height?.toDouble(),
+      height: widget.height?.toDouble(),
       decoration: BoxDecoration(),
       child: Align(
         alignment: AlignmentDirectional(0.0, 0.0),
         child: Builder(
           builder: (context) {
-            final hours = getJsonField(
+            final hours = functions.getJsonField(
+              
               functions.getHours(),
               r'''$.hours[*]''',
             ).toList();
@@ -66,11 +67,11 @@ class _BackgroundWidgetState extends State<BackgroundWidget> {
                 final hoursItem = hours[hoursIndex];
                 return HourBackgroundWidget(
                   key: Key('Keyy5q_${hoursIndex}_of_${hours.length}'),
-                  time: getJsonField(
+                  time: functions.getJsonField(
                     hoursItem,
                     r'''$.hour''',
                   ).toString(),
-                  period: getJsonField(
+                  period: functions.getJsonField(
                     hoursItem,
                     r'''$.period''',
                   ).toString(),

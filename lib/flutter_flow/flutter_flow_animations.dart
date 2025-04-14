@@ -32,14 +32,14 @@ class AnimationInfo {
 }
 
 void setupAnimations(Iterable<AnimationInfo> animations, TickerProvider vsync) {
-  animations.forEach((animation) {
+  for (var animation in animations) {
     animation.effects?.forEach((effect) {
       effect
         ..curve = animation.curve
         ..delay = animation.delay.milliseconds
         ..duration = animation.duration.milliseconds;
     });
-  });
+  }
 }
 
 extension AnimatedWidgetExtension on Widget {

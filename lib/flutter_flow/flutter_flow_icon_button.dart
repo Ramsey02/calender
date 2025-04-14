@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class FlutterFlowIconButton extends StatelessWidget {
   const FlutterFlowIconButton({
-    Key? key,
+    super.key,
     required this.icon,
     this.borderColor = Colors.transparent,
     this.borderRadius = 8.0,
@@ -17,7 +17,7 @@ class FlutterFlowIconButton extends StatelessWidget {
     this.iconSize = 24.0,
     this.onPressed,
     this.showLoadingIndicator = false,
-  }) : super(key: key);
+  });
 
   final Widget icon;
   final double borderRadius;
