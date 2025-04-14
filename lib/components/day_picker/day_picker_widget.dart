@@ -1,7 +1,7 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_model.dart';  // Add this import
+import '/flutter_flow/flutter_flow_model.dart';
 import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
@@ -103,7 +103,7 @@ class _DayPickerWidgetState extends State<DayPickerWidget>
                       width: 30.0,
                       height: 30.0,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondary,
+                        color: FlutterFlowTheme.secondary,
                         shape: BoxShape.circle,
                       ),
                       alignment: AlignmentDirectional(0.0, 0.05),
@@ -115,7 +115,7 @@ class _DayPickerWidgetState extends State<DayPickerWidget>
                     widget.day?.toString(),
                     '1',
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  style: FlutterFlowTheme.bodyMedium.override(
                         fontFamily: 'Poppins',
                         letterSpacing: 0.0,
                       ),
@@ -126,10 +126,10 @@ class _DayPickerWidgetState extends State<DayPickerWidget>
                       width: 30.0,
                       height: 30.0,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondary,
+                        color: FlutterFlowTheme.secondary,
                         shape: BoxShape.circle,
                         border: Border.all(
-                          color: FlutterFlowTheme.of(context).secondary,
+                          color: FlutterFlowTheme.secondary,
                           width: 2.0,
                         ),
                       ),
@@ -145,7 +145,7 @@ class _DayPickerWidgetState extends State<DayPickerWidget>
             child: SelectionArea(
                 child: Text(
               widget.weekday!,
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
+              style: FlutterFlowTheme.bodyMedium.override(
                     fontFamily: 'Poppins',
                     color: Color(0x7857636C),
                     fontSize: 10.0,

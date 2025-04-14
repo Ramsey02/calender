@@ -7,7 +7,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/flutter_flow_model.dart';  // Add this import
+import '/flutter_flow/flutter_flow_model.dart';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -112,11 +112,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
               curve: Curves.ease,
             );
           },
-          backgroundColor: FlutterFlowTheme.of(context).primary,
+          backgroundColor: FlutterFlowTheme.primary,
           elevation: 8.0,
           child: Icon(
             Icons.add,
-            color: FlutterFlowTheme.of(context).white,
+            color: FlutterFlowTheme.white,
             size: 24.0,
           ),
         ),
@@ -215,7 +215,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 width: 35.0,
                                 height: 35.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).primary,
+                                  color: FlutterFlowTheme.primary,
                                   shape: BoxShape.circle,
                                 ),
                               ),
@@ -243,7 +243,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           buttonSize: 40.0,
                           icon: Icon(
                             Icons.calendar_today,
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            color: FlutterFlowTheme.secondaryText,
                             size: 20.0,
                           ),
                           onPressed: () async {
@@ -274,9 +274,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               functions.dateInfo(FFAppState().selectedDay!),
                               r'''$.month''',
                             ).toString(),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
+                            style: FlutterFlowTheme.bodyMedium.override(
                                   fontFamily: 'Poppins',
                                   color: Color(0x7A57636C),
                                   fontSize: 32.0,
@@ -313,7 +311,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     width: 100.0,
                     height: 60.0,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).overlayWhite,
+                      color: FlutterFlowTheme.overlayWhite,
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                     child: Row(
@@ -327,7 +325,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           buttonSize: 50.0,
                           icon: FaIcon(
                             FontAwesomeIcons.minus,
-                            color: FlutterFlowTheme.of(context).primaryText,
+                            color: FlutterFlowTheme.primaryText,
                             size: 10.0,
                           ),
                           onPressed: () async {
@@ -343,7 +341,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           buttonSize: 50.0,
                           icon: Icon(
                             Icons.add,
-                            color: FlutterFlowTheme.of(context).primaryText,
+                            color: FlutterFlowTheme.primaryText,
                             size: 15.0,
                           ),
                           onPressed: () async {
