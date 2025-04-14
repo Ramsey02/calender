@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 
 import 'event_details_model.dart';
 export 'event_details_model.dart';
-
+import '/flutter_flow/flutter_flow_model.dart';  // Added this import
 class EventDetailsWidget extends StatefulWidget {
   const EventDetailsWidget({
     super.key,
@@ -108,7 +108,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                   children: [
                     Expanded(
                       child: Text(
-                        widget.title!,
+                        widget!.title!,
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .override(
@@ -125,7 +125,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                         width: 30.0,
                         height: 30.0,
                         decoration: BoxDecoration(
-                          color: widget.color,
+                          color: widget!.color,
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -138,7 +138,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                 children: [
                   Expanded(
                     child: Text(
-                      '${dateTimeFormat("jm", widget.start)} - ${dateTimeFormat("jm", widget.end)}',
+                      '${dateTimeFormat("jm", widget!.start)} - ${dateTimeFormat("jm", widget!.end)}',
                       style: FlutterFlowTheme.of(context)
                           .headlineMedium
                           .override(
@@ -156,7 +156,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    SizedBox(
+                    Container(
                       width: 60.0,
                       height: 100.0,
                       child: Stack(
@@ -194,7 +194,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                         child: Text(
-                          widget.description!,
+                          widget!.description!,
                           maxLines: 3,
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
@@ -216,7 +216,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  SizedBox(
+                  Container(
                     width: 60.0,
                     height: 60.0,
                     child: Stack(
@@ -250,7 +250,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                     ),
                   ),
                   Text(
-                    widget.location!,
+                    widget!.location!,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -280,7 +280,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  SizedBox(
+                  Container(
                     width: 60.0,
                     height: 60.0,
                     child: Stack(
@@ -314,7 +314,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                     ),
                   ),
                   Text(
-                    widget.alert!,
+                    widget!.alert!,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -344,7 +344,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  SizedBox(
+                  Container(
                     width: 60.0,
                     height: 60.0,
                     child: Stack(
@@ -397,12 +397,12 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        SizedBox(
+                        Container(
                           width: 100.0,
                           child: Stack(
                             children: [
                               if (getJsonField(
-                                    widget.attendees,
+                                    widget!.attendees,
                                     r'''$[0]''',
                                   ) !=
                                   null)
@@ -424,7 +424,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                                       ),
                                       child: Image.network(
                                         getJsonField(
-                                          widget.attendees,
+                                          widget!.attendees,
                                           r'''$[0].img''',
                                         ).toString(),
                                       ),
@@ -432,7 +432,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                                   ),
                                 ),
                               if (getJsonField(
-                                    widget.attendees,
+                                    widget!.attendees,
                                     r'''$[1]''',
                                   ) !=
                                   null)
@@ -457,7 +457,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                                         ),
                                         child: Image.network(
                                           getJsonField(
-                                            widget.attendees,
+                                            widget!.attendees,
                                             r'''$[1].img''',
                                           ).toString(),
                                         ),
@@ -466,7 +466,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                                   ),
                                 ),
                               if (getJsonField(
-                                    widget.attendees,
+                                    widget!.attendees,
                                     r'''$[2]''',
                                   ) !=
                                   null)
@@ -491,7 +491,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                                         ),
                                         child: Image.network(
                                           getJsonField(
-                                            widget.attendees,
+                                            widget!.attendees,
                                             r'''$[2].img''',
                                           ).toString(),
                                         ),
@@ -515,7 +515,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                         EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
                     child: Builder(
                       builder: (context) {
-                        final attendee = widget.attendees?.toList() ?? [];
+                        final attendee = widget!.attendees?.toList() ?? [];
 
                         return Column(
                           mainAxisSize: MainAxisSize.max,
@@ -526,7 +526,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                             return Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                SizedBox(
+                                Container(
                                   width: 18.0,
                                   height: 18.0,
                                   child: Stack(

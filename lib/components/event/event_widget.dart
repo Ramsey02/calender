@@ -1,6 +1,7 @@
 import '/components/event_details/event_details_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_model.dart';  // Add this import
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
@@ -43,6 +44,13 @@ class EventWidget extends StatefulWidget {
 
 class _EventWidgetState extends State<EventWidget> {
   late EventModel _model;
+
+  // Add safeSetState method
+  void safeSetState(VoidCallback fn) {
+    if (mounted) {
+      setState(fn);
+    }
+  }
 
   @override
   void setState(VoidCallback callback) {
@@ -153,9 +161,7 @@ class _EventWidgetState extends State<EventWidget> {
                                 child: AutoSizeText(
                                   widget.title!,
                                   maxLines: 1,
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
+                                  style: FlutterFlowTheme.bodyMedium.override(
                                         fontFamily: 'Poppins',
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
@@ -171,9 +177,7 @@ class _EventWidgetState extends State<EventWidget> {
                                 child: Text(
                                   '${dateTimeFormat("jm", widget.startTimestamp)} - ${dateTimeFormat("jm", widget.endTimestamp)}',
                                   maxLines: 1,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
+                                  style: FlutterFlowTheme.bodyMedium.override(
                                         fontFamily: 'Poppins',
                                         fontSize: 10.0,
                                         letterSpacing: 0.0,
@@ -193,7 +197,7 @@ class _EventWidgetState extends State<EventWidget> {
                               width: 100.0,
                               child: Stack(
                                 children: [
-                                  if (getJsonField(
+                                  if (functions.getJsonField(
                                         widget.attendees,
                                         r'''$[0]''',
                                       ) !=
@@ -202,8 +206,7 @@ class _EventWidgetState extends State<EventWidget> {
                                       width: 30.0,
                                       height: 30.0,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                        color: FlutterFlowTheme.primary,
                                         shape: BoxShape.circle,
                                       ),
                                       child: Padding(
@@ -216,7 +219,7 @@ class _EventWidgetState extends State<EventWidget> {
                                             shape: BoxShape.circle,
                                           ),
                                           child: Image.network(
-                                            getJsonField(
+                                            functions.getJsonField(
                                               widget.attendees,
                                               r'''$[0].img''',
                                             ).toString(),
@@ -224,7 +227,7 @@ class _EventWidgetState extends State<EventWidget> {
                                         ),
                                       ),
                                     ),
-                                  if (getJsonField(
+                                  if (functions.getJsonField(
                                         widget.attendees,
                                         r'''$[1]''',
                                       ) !=
@@ -236,8 +239,7 @@ class _EventWidgetState extends State<EventWidget> {
                                         width: 30.0,
                                         height: 30.0,
                                         decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
+                                          color: FlutterFlowTheme.tertiary,
                                           shape: BoxShape.circle,
                                         ),
                                         child: Padding(
@@ -250,7 +252,7 @@ class _EventWidgetState extends State<EventWidget> {
                                               shape: BoxShape.circle,
                                             ),
                                             child: Image.network(
-                                              getJsonField(
+                                              functions.getJsonField(
                                                 widget.attendees,
                                                 r'''$[1].img''',
                                               ).toString(),
@@ -259,7 +261,7 @@ class _EventWidgetState extends State<EventWidget> {
                                         ),
                                       ),
                                     ),
-                                  if (getJsonField(
+                                  if (functions.getJsonField(
                                         widget.attendees,
                                         r'''$[2]''',
                                       ) !=
@@ -270,8 +272,7 @@ class _EventWidgetState extends State<EventWidget> {
                                         width: 30.0,
                                         height: 30.0,
                                         decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .tertiary,
+                                          color: FlutterFlowTheme.tertiary,
                                           shape: BoxShape.circle,
                                         ),
                                         child: Padding(
@@ -284,7 +285,7 @@ class _EventWidgetState extends State<EventWidget> {
                                               shape: BoxShape.circle,
                                             ),
                                             child: Image.network(
-                                              getJsonField(
+                                              functions.getJsonField(
                                                 widget.attendees,
                                                 r'''$[2].img''',
                                               ).toString(),

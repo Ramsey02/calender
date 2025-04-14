@@ -5,6 +5,8 @@ import 'lat_lng.dart';
 import 'place.dart';
 import 'uploaded_file.dart';
 
+import 'dart:convert';
+
 dynamic getHours() {
   // return a JSON array of strings, each string being an hour of the day
   var hours = {
@@ -928,21 +930,57 @@ DateTime timestampFromString(String timestampString) {
   return DateTime.parse(timestampString);
 }
 
-// Add this to your custom_functions.dart if needed
+
+///////////////////////////////////////
+//
+// Add this to your custom_functions.dart file
+// Note: You likely have other functions in this file already, just add this function if it's missing
+
+/// Extracts a value from a JSON object based on a provided path
+/// Example: getJsonField({"user": {"name": "John"}}, '$.user.name') returns "John"
 dynamic getJsonField(dynamic response, String jsonPath) {
-  // Implementation logic to traverse JSON using the path
-  if (response == null) return null;
+  if (response == null) {
+    return null;
+  }
+
+  // If response is a string, try to parse it as JSON
+  if (response is String) {
+    try {
+      response = json.decode(response);
+    } catch (e) {
+      print('Error parsing JSON string: $e');
+      return null;
+    }
+  }
+
+  // Remove the leading "$." if present
+  String path = jsonPath.startsWith(r'$.') 
+      ? jsonPath.substring(2) 
+      : jsonPath;
   
-  // Split the path by dots or brackets
-  List<String> parts = jsonPath.replaceAll(r"$.", "").split('.');
-  
+  // Split the path by dots and handle array notation
+  List<String> parts = path.split('.')
+      .map((part) => part.trim())
+      .where((part) => part.isNotEmpty)
+      .toList();
+
   dynamic result = response;
-  for (String part in parts) {
+  
+  for (int i = 0; i < parts.length; i++) {
+    String part = parts[i];
+    
+    // Handle array notation like [0], [*], etc.
     if (part.contains('[') && part.contains(']')) {
-      // Handle array notation
+      // Extract field name before the bracket
       String fieldName = part.substring(0, part.indexOf('['));
-      String indexStr = part.substring(part.indexOf('[') + 1, part.indexOf(']'));
       
+      // Extract index or wildcard inside brackets
+      String indexStr = part.substring(
+          part.indexOf('[') + 1, 
+          part.indexOf(']')
+      );
+      
+      // First get the field if it's not empty
       if (fieldName.isNotEmpty) {
         if (result is Map && result.containsKey(fieldName)) {
           result = result[fieldName];
@@ -951,19 +989,24 @@ dynamic getJsonField(dynamic response, String jsonPath) {
         }
       }
       
+      // Handle array operations
       if (indexStr == '*') {
-        // Return all items in array
-        return result;
+        // Return all items in the array (for subsequent processing)
+        if (result is List) {
+          return result;
+        }
+        return null;
       } else {
-        int index = int.tryParse(indexStr) ?? 0;
-        if (result is List && index < result.length) {
+        // Get specific index
+        int? index = int.tryParse(indexStr);
+        if (index != null && result is List && index < result.length) {
           result = result[index];
         } else {
           return null;
         }
       }
     } else {
-      // Handle normal field
+      // Regular field access
       if (result is Map && result.containsKey(part)) {
         result = result[part];
       } else {
@@ -973,4 +1016,10 @@ dynamic getJsonField(dynamic response, String jsonPath) {
   }
   
   return result;
+}
+
+
+String _getWeekdayName(int weekday) {
+  const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  return weekdays[weekday - 1];
 }
