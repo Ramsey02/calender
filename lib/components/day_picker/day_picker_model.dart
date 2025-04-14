@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_model.dart';
 import 'dart:math';
 import 'dart:ui';
 import 'day_picker_widget.dart' show DayPickerWidget;
@@ -16,4 +17,6 @@ class DayPickerModel extends FlutterFlowModel<DayPickerWidget> {
 
   @override
   void dispose() {}
+  
+  // No need to override onUpdate anymore since base class has default implementation
 }

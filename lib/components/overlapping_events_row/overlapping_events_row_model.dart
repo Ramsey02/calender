@@ -7,7 +7,7 @@ import 'overlapping_events_row_widget.dart' show OverlappingEventsRowWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
+import '/flutter_flow/flutter_flow_model.dart';  // Add this import
 class OverlappingEventsRowModel
     extends FlutterFlowModel<OverlappingEventsRowWidget> {
   @override

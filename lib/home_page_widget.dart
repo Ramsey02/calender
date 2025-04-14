@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/flutter_flow_model.dart';  // Add this import
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -58,7 +59,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
       'eventsOnActionTriggerAnimation': AnimationInfo(
         trigger: AnimationTrigger.onActionTrigger,
         applyInitialState: true,
-        effectsBuilder: () => [
+        effects: [
           FadeEffect(
             curve: Curves.elasticOut,
             delay: 200.0.ms,
@@ -205,7 +206,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SizedBox(
+                        Container(
                           width: 35.0,
                           height: 35.0,
                           child: Stack(
@@ -269,7 +270,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         children: [
                           SelectionArea(
                               child: Text(
-                            getJsonField(
+                            functions.getJsonField(
                               functions.dateInfo(FFAppState().selectedDay!),
                               r'''$.month''',
                             ).toString(),

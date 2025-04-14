@@ -7,7 +7,7 @@ import 'events_widget.dart' show EventsWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
+import '/flutter_flow/flutter_flow_model.dart';  // Add this import
 class EventsModel extends FlutterFlowModel<EventsWidget> {
   @override
   void initState(BuildContext context) {}

@@ -5,7 +5,7 @@ import 'hour_background_widget.dart' show HourBackgroundWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
+import '/flutter_flow/flutter_flow_model.dart';  // Add this import
 class HourBackgroundModel extends FlutterFlowModel<HourBackgroundWidget> {
   @override
   void initState(BuildContext context) {}

@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_model.dart';  // Add this import
 import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
@@ -50,7 +51,7 @@ class _DayPickerWidgetState extends State<DayPickerWidget>
     animationsMap.addAll({
       'containerOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
+        effects: [
           ScaleEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
@@ -62,7 +63,7 @@ class _DayPickerWidgetState extends State<DayPickerWidget>
       ),
       'containerOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
+        effects: [
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
